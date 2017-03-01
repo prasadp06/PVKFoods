@@ -33,8 +33,11 @@ public class CustomerServiceImplTest {
 	}
 
 	@Test
-	public void testGet() {
-		fail("Not yet implemented");
+	public void testGet() throws DAOException {
+		Customer actual = new Customer(new Long(1), "Cus 1", "test@test.com", "1234 Test Street", "1234567890", "testuser", new Date());
+		
+		Customer cus = service.get(new Long(1));
+		assertSame(actual,cus);
 	}
 
 	@Test

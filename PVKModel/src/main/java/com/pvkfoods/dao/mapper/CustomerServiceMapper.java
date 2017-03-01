@@ -26,7 +26,7 @@ public interface CustomerServiceMapper {
         @Result(property = "updatedBy", column = "UPDATED_BY"),
         @Result(property = "updatedDate", column = "UPDATED_DATE")
       })
-	@Select("SELECT CUSTOMER_ID, CUSTOMER_NAME, EMAIL, ADDRESS, PHONE, UPDATED_BY, UPDATED_DATE from PVK_CUSTOMER WHERE id = #{id}")
+	@Select("SELECT CUSTOMER_ID, CUSTOMER_NAME, EMAIL, ADDRESS, PHONE, UPDATED_BY, UPDATED_DATE from PVK_CUSTOMER WHERE CUSTOMER_ID = #{customerId}")
 	Customer getCustomer(Long customerId);
 	
 	@Results({
