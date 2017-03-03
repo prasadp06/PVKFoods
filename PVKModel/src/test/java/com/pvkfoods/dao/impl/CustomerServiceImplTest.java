@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pvkfoods.DAOException;
-import com.pvkfoods.dao.CustomerService;
+import com.pvkfoods.dao.CustomerServiceDao;
 import com.pvkfoods.dao.bean.Customer;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -19,7 +19,7 @@ import com.pvkfoods.dao.bean.Customer;
 public class CustomerServiceImplTest {
 
 	@Autowired
-	CustomerService service;
+	CustomerServiceDao service;
 	
 	@Test
 	public void testSave() throws DAOException {

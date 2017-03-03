@@ -10,7 +10,7 @@ import com.pvkfoods.dao.bean.Customer;
  * @author prasadprabhakaran
  *
  */
-public interface CustomerService {
+public interface CustomerServiceDao {
 	/**
 	 * 
 	 * @param customer

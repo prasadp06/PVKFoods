@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pvkfoods.DAOException;
-import com.pvkfoods.dao.CustomerService;
+import com.pvkfoods.dao.CustomerServiceDao;
 import com.pvkfoods.dao.bean.Customer;
 import com.pvkfoods.dao.mapper.CustomerServiceMapper;
-import com.pvkfoods.dao.utils.MyBatisUtil;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceDaoImpl implements CustomerServiceDao {
 	
 	@Autowired
 	private static SqlSessionFactoryBean sqlSessionFactory;
@@ -93,5 +92,7 @@ public class CustomerServiceImpl implements CustomerService {
 			
 		}
 	}
+
+	
 
 }

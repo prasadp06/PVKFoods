@@ -11,7 +11,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.pvkfoods.dto.CustomerDto;
+import com.pvkfoods.dto.request.CustomerRequest;
+import com.pvkfoods.dto.request.CustomerResponse;
 
 /**
  * 
@@ -24,21 +25,21 @@ public interface CustomerService {
 	
 	@PUT
 	@Path("/")
-	public Long addCustomer(CustomerDto dto);
+	public Long addCustomer(CustomerRequest customer);
 	
 	@GET
 	@Path("/{id}/")
-	public CustomerDto getCustomer(@PathParam("id") Long id);
+	public CustomerResponse getCustomer(@PathParam("id") Long id);
 	
 	@GET
 	@Path("/")
-	public ArrayList<CustomerDto> getCustomers();
+	public CustomerResponse getCustomers();
 	
 	@POST
 	@Path("/")
-	public Long modifyCustomer(CustomerDto dto);
+	public Long modifyCustomer(CustomerRequest customer);
 	
 	@DELETE
 	@Path("/")
-	public Long deleteCustomer(CustomerDto dto);
+	public boolean deleteCustomer(@PathParam("id") Long id);
 }

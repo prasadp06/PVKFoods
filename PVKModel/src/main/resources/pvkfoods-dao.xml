@@ -33,12 +33,10 @@
 		<property name="basePackage" value="com.pvkfoods.dao.mapper"></property>
 	</bean>
 	
-	<bean id="userDaoService" class="com.pvkfoods.dao.impl.CustomerServiceImpl" />
-	<bean id="searchDaoService" class="com.pvkfoods.dao.impl.ProductServiceImpl" />
-	<bean id="mybatisUtil" class="com.pvkfoods.dao.utils.MyBatisUtil" >
-		
-	</bean>
-	
+	<bean id="customerDaoService" class="com.pvkfoods.dao.impl.CustomerServiceDaoImpl" />
+	<bean id="productDaoService" class="com.pvkfoods.dao.impl.ProductServiceDaoImpl" />
+	<bean id="mybatisUtil" class="com.pvkfoods.dao.utils.MyBatisUtil" />
+
 	
 	
 	<!-- Aspect -->

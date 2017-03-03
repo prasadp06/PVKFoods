@@ -1,15 +1,10 @@
 package com.pvkfoods.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.ws.rs.core.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.pvkfoods.bl.CustomerManager;
-import com.pvkfoods.dao.bean.Customer;
-import com.pvkfoods.dto.CustomerDto;
+import com.pvkfoods.dto.request.CustomerRequest;
+import com.pvkfoods.dto.request.CustomerResponse;
 import com.pvkfoods.exception.BusinessException;
 import com.pvkfoods.service.CustomerService;
 
@@ -23,9 +18,9 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	CustomerManager customerManager; 
 	
-	public Long addCustomer(CustomerDto dto) {
+	public Long addCustomer(CustomerRequest customer) {
 		try {
-			System.out.println("Inside Save "+ dto.getCustomerId() +"|" + dto.getCustomerName());
+			System.out.println("Inside Save "+ customer.getCustomer().getCustomerName() );
 			return new Long(1010L);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,46 +29,37 @@ public class CustomerServiceImpl implements CustomerService {
 		return null;
 	}
 
-	public CustomerDto getCustomer(Long id) {
-		CustomerDto dto = new CustomerDto(1010L,"Test Customer");
+	public CustomerResponse getCustomer(Long id) {
+		CustomerResponse dto = new CustomerResponse();
 		return dto;
 	}
 
-	public ArrayList<CustomerDto> getCustomers() {
-		ArrayList<CustomerDto> customers = new ArrayList<CustomerDto>();
+	public CustomerResponse getCustomers() {
+		CustomerResponse dto = new CustomerResponse();
 		
 		try {
-			List<Customer> daoCustomers = customerManager.getCustomers();
-			addToList(customers, daoCustomers);
+		
+			dto.getCustomers().addAll(customerManager.getCustomers());
+			
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return customers;
+		return dto;
 	}
 
-	private void addToList(ArrayList<CustomerDto> customers, List<Customer> daoCustomers) {
-		CustomerDto dto; 
-		if(daoCustomers != null && daoCustomers.size()>0){
-			for(Customer dao : daoCustomers){
-				dto = new CustomerDto(dao.getCustomerId(), dao.getCustomerName());
-				customers.add(dto);
-			}
-		}
-		
-		
-	}
+	
 
-	public Long modifyCustomer(CustomerDto dto) {
-		System.out.println("Inside Modify "+ dto.getCustomerId() +"|" + dto.getCustomerName());
+	public Long modifyCustomer(CustomerRequest customer) {
+		System.out.println("Inside Modify "+ customer.getCustomer().getCustomerName());
 		// TODO Auto-generated method stub
 		return new Long(100);
 	}
 
-	public Long deleteCustomer(CustomerDto dto) {
+	public boolean deleteCustomer(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }

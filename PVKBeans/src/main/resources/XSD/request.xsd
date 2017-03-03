@@ -2,9 +2,11 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:pvk-req-dto="http://request.dto.pvkfoods.com" 
 	xmlns:pvk-beans-dto="http://beans.dto.pvkfoods.com" 
-	targetNamespace="http://request.dto.pvkfoods.com" elementFormDefault="unqualified" attributeFormDefault="unqualified" >
+	targetNamespace="http://request.dto.pvkfoods.com" >
 	
 	<xsd:import namespace="http://beans.dto.pvkfoods.com"  schemaLocation="pvkfoodbeans.xsd" />
+    
+    <xsd:element name="customerResponse" type="pvk-req-dto:CustomerResponse" />
     
     <xsd:complexType name="BaseRequest">
     	<xsd:sequence>
@@ -25,7 +27,7 @@
     	</xsd:sequence>
     </xsd:complexType>
     
-    <xsd:complexType name="OrderRequest">
+    <xsd:complexType name="GetOrderRequest">
     	<xsd:complexContent>
     		<xsd:extension base="pvk-req-dto:BaseRequest">
 	    		<xsd:sequence>
@@ -33,7 +35,16 @@
 	    		</xsd:sequence>
     		</xsd:extension>
     	</xsd:complexContent>
-    	
+    </xsd:complexType>
+    
+    <xsd:complexType name="OrderRequest">
+    	<xsd:complexContent>
+    		<xsd:extension base="pvk-req-dto:BaseRequest">
+	    		<xsd:sequence>
+	    			<xsd:element name="order" type="pvk-beans-dto:Order"></xsd:element>
+	    		</xsd:sequence>
+    		</xsd:extension>
+    	</xsd:complexContent>
     </xsd:complexType>
     
     <xsd:complexType name="OrderSearchRequest">
@@ -53,10 +64,50 @@
     	<xsd:complexContent>
     		<xsd:extension base="pvk-req-dto:BaseResponse">
 		    	<xsd:sequence>
-		    		<xsd:element name="orders" type="pvk-beans-dto:Orders"></xsd:element>
+		    		<xsd:element name="orders" type="pvk-beans-dto:Order" maxOccurs="unbounded"></xsd:element>
 		    	</xsd:sequence>
 		    </xsd:extension>
 		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="CustomerResponse">
+    	<xsd:complexContent>
+    		<xsd:extension base="pvk-req-dto:BaseResponse">
+		    	<xsd:sequence>
+		    		<xsd:element name="customers" type="pvk-beans-dto:Customer" maxOccurs="unbounded"></xsd:element>
+		    	</xsd:sequence>
+		    </xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProductResponse">
+    	<xsd:complexContent>
+    		<xsd:extension base="pvk-req-dto:BaseResponse">
+		    	<xsd:sequence>
+		    		<xsd:element name="products" type="pvk-beans-dto:Product" maxOccurs="unbounded"></xsd:element>
+		    	</xsd:sequence>
+		    </xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="CustomerRequest">
+    	<xsd:complexContent>
+    		<xsd:extension base="pvk-req-dto:BaseRequest">
+	    		<xsd:sequence>
+	    			<xsd:element name="customer" type="pvk-beans-dto:Customer"></xsd:element>
+	    		</xsd:sequence>
+    		</xsd:extension>
+    	</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProductRequest">
+    	<xsd:complexContent>
+    		<xsd:extension base="pvk-req-dto:BaseRequest">
+	    		<xsd:sequence>
+	    			<xsd:element name="product" type="pvk-beans-dto:Product"></xsd:element>
+	    		</xsd:sequence>
+    		</xsd:extension>
+    	</xsd:complexContent>
     </xsd:complexType>
     
 </xsd:schema>

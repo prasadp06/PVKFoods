@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pvkfoods.bl.CustomerManager;
-import com.pvkfoods.dao.bean.Customer;
+import com.pvkfoods.dto.beans.Customer;
 import com.pvkfoods.exception.BusinessException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
