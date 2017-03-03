@@ -32,6 +32,11 @@
       
     <dependency>
         <groupId>PVKFoods</groupId>
+        <artifactId>PVKBeans</artifactId>
+        <version>1.0</version>
+    </dependency>  
+    <dependency>
+        <groupId>PVKFoods</groupId>
         <artifactId>PVKCore</artifactId>
         <version>1.0</version>
     </dependency>

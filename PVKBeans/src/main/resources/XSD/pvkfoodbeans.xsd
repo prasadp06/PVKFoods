@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:pvk-beans-dto="http://beans.dto.pvkfoods.com" 
+	targetNamespace="http://beans.dto.pvkfoods.com" elementFormDefault="unqualified" attributeFormDefault="unqualified" >
+
+    
+    <xsd:complexType name="User">
+    	<xsd:sequence>
+    		<xsd:element name="userId" type="xsd:string" minOccurs="0" />
+    		<xsd:element name="username" type="xsd:string" />
+    		<xsd:element name="password" type="xsd:string" />
+    		<xsd:element name="status" type="pvk-beans-dto:UserStatus" />
+    		<xsd:element name="type" type="pvk-beans-dto:UserType" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="UserDetails">
+    	<xsd:sequence>
+    		<xsd:element name="user" type="pvk-beans-dto:User" minOccurs="0" />
+    		<xsd:element name="firstname" type="xsd:string" />
+    		<xsd:element name="middlename" type="xsd:string" />
+    		<xsd:element name="lastname" type="xsd:string" />
+    		<xsd:element name="dob" type="xsd:date" />
+    		<xsd:element name="UUID" type="xsd:string" />
+    		<xsd:element name="phones" type="pvk-beans-dto:Phones" />
+    		<xsd:element name="address" type="pvk-beans-dto:Addresses"></xsd:element>
+    		<xsd:element name="joinDate" type="xsd:date" />
+    		<xsd:element name="leavingDate" type="xsd:date" />
+    		<xsd:element name="email" type="xsd:string" />
+    		<xsd:element name="designation" type="pvk-beans-dto:Designation" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+     <xsd:complexType name="Designation">
+    	<xsd:sequence>
+    		<xsd:element name="designationId" type="xsd:long" minOccurs="0" />
+    		<xsd:element name="designationName" type="xsd:string" />
+    		<xsd:element name="fromDate" type="xsd:date" />
+    		<xsd:element name="toDate" type="xsd:date" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Phones">
+    	<xsd:sequence>
+    		<xsd:element name="phone" type="pvk-beans-dto:Phone" maxOccurs="unbounded" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Phone">
+    	<xsd:sequence>
+    		<xsd:element name="number" type="xsd:string" minOccurs="0" />
+    		<xsd:element name="phoneType" type="pvk-beans-dto:PhoneType" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Addresses">
+    	<xsd:sequence>
+    		<xsd:element name="addresses" type="pvk-beans-dto:Address" maxOccurs="unbounded" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Address">
+    	<xsd:sequence>
+    		<xsd:element name="AddressId" type="xsd:long" minOccurs="0" />
+    		<xsd:element name="Address1" type="xsd:string" />
+    		<xsd:element name="Street" type="xsd:string" />
+    		<xsd:element name="Pincode" type="xsd:string" />
+    		<xsd:element name="city" type="xsd:string" minOccurs="1"/>
+    		<xsd:element name="State" type="xsd:string" minOccurs="1" />
+    		<xsd:element name="Country" type="xsd:string" minOccurs="1" />
+    		<xsd:element name="addressType" type="pvk-beans-dto:AddressType"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Products">
+    	<xsd:sequence>
+    		<xsd:element name="products" type="pvk-beans-dto:Product" minOccurs="0" maxOccurs="unbounded" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Product">
+    	<xsd:sequence>
+    		<xsd:element name="productId" type="xsd:long" minOccurs="0" />
+    		<xsd:element name="productName" type="xsd:string" />
+    		<xsd:element name="productDesc" type="xsd:string" />
+    		<xsd:element name="status" type="xsd:string" />
+    		<xsd:element name="units" type="xsd:double" minOccurs="0"/>
+    		<xsd:element name="UOM" type="xsd:string" minOccurs="0" />
+    		<xsd:element name="unitPrice" type="xsd:double" minOccurs="0"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Customers">
+    	<xsd:sequence>
+    		<xsd:element name="customers" type="pvk-beans-dto:Customers" minOccurs="0" maxOccurs="unbounded" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Customer">
+    	<xsd:sequence>
+    		<xsd:element name="customerId" type="xsd:long" minOccurs="0" />
+    		<xsd:element name="customerName" type="xsd:string" />
+    		<xsd:element name="branch" type="pvk-beans-dto:Branch" />
+    		<xsd:element name="UUID" type="xsd:string" />
+    		<xsd:element name="email" type="xsd:string" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Branch">
+    	<xsd:sequence>
+    		<xsd:element name="branchId" type="xsd:long" minOccurs="0" />
+    		<xsd:element name="branchName" type="xsd:string" />
+    		<xsd:element name="address" type="pvk-beans-dto:Addresses" />
+    		<xsd:element name="status" type="xsd:string" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="Supplier">
+    	<xsd:sequence>
+    		<xsd:element name="supplierId" type="xsd:long" minOccurs="0" />
+    		<xsd:element name="supplierName" type="xsd:string" />
+    		<xsd:element name="branch" type="pvk-beans-dto:Branch" />
+    		<xsd:element name="UUID" type="xsd:string" />
+    		<xsd:element name="email" type="xsd:string" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="ProductSupplier">
+    	<xsd:sequence>
+    		<xsd:element name="supplier" type="pvk-beans-dto:ProductSupplier" minOccurs="0" />
+    		<xsd:element name="products" type="pvk-beans-dto:Products" minOccurs="0" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Orders">
+    	<xsd:sequence>
+    		<xsd:element name="orders" type="pvk-beans-dto:Order" minOccurs="0" maxOccurs="unbounded" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Order">
+    	<xsd:sequence>
+    		<xsd:element name="orderId" type="xsd:long" />
+    		<xsd:element name="user" type="pvk-beans-dto:UserDetails" minOccurs="0" />
+    		<xsd:element name="customer" type="pvk-beans-dto:Customer" minOccurs="0" />
+    		<xsd:element name="totalAmount" type="xsd:double" />
+    		<xsd:element name="remarks" type="xsd:string" />
+    		<xsd:element name="orderDate" type="xsd:date" />
+    		<xsd:element name="orderDetails" type="pvk-beans-dto:OrderDetails" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="OrderDetails">
+    	<xsd:sequence>
+    		<xsd:element name="product" type="pvk-beans-dto:Product" />
+    		<xsd:element name="quantity" type="xsd:decimal" />
+    		<xsd:element name="UOM" type="xsd:string" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="SalesTarget">
+    	<xsd:sequence>
+    		<xsd:element name="user" type="pvk-beans-dto:UserDetails" />
+    		<xsd:element name="targetAmount" type="xsd:double" />
+    		<xsd:element name="fromDate" type="xsd:date" />
+    		<xsd:element name="toDate" type="xsd:date" />
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="AddressType">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="PERMANENT"></xsd:enumeration>
+    		<xsd:enumeration value="CURRENT"></xsd:enumeration>
+    	</xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="UserStatus">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="ACTIVE"></xsd:enumeration>
+    		<xsd:enumeration value="DEACTIVE"></xsd:enumeration>
+    	</xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="UserType">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="CUSTOMER"></xsd:enumeration>
+    		<xsd:enumeration value="SALES"></xsd:enumeration>
+    		<xsd:enumeration value="SYSADMIN"></xsd:enumeration>
+    		<xsd:enumeration value="SUPPALIER"></xsd:enumeration>
+    	</xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="PhoneType">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="MOBILE"></xsd:enumeration>
+    		<xsd:enumeration value="OFFICE"></xsd:enumeration>
+    		<xsd:enumeration value="HOME"></xsd:enumeration>
+    	</xsd:restriction>
+    </xsd:simpleType>
+    
+    
+</xsd:schema>
