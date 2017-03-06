@@ -23,21 +23,21 @@ public interface OrderService {
 	
 	@PUT
 	@Path("/")
-	public Long createOrder(OrderRequest orderRequest);
+	public Long createOrder(OrderRequest orderRequest) throws ServiceException;
 	
 	@GET
 	@Path("/{id}/")
-	public OrderResponse getOrder(@PathParam("id") Long id);
+	public OrderResponse getOrder(@PathParam("id") Long id) throws ServiceException;
 	
 	@GET
 	@Path("/")
-	public OrderResponse getOrders(OrderSearchRequest orderRequest);
+	public OrderResponse getOrders(OrderSearchRequest orderRequest) throws ServiceException;
 	
 	@POST
 	@Path("/")
-	public Long modifyOrder(OrderRequest orderRequest);
+	public Long modifyOrder(OrderRequest orderRequest) throws ServiceException;
 	
 	@DELETE
 	@Path("/")
-	public boolean deleteOrder(@PathParam("id") Long id);
+	public boolean deleteOrder(@PathParam("id") Long id) throws ServiceException;
 }

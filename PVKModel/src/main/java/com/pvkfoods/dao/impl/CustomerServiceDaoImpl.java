@@ -98,6 +98,14 @@ public class CustomerServiceDaoImpl implements CustomerServiceDao {
 		}
 	}
 
+	public SqlSession getSqlSession() {
+		return sqlSession;
+	}
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
 	
 
 }

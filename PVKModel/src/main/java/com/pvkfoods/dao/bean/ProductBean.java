@@ -87,7 +87,7 @@ public class ProductBean extends BaseDaoBean{
 	 */
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productDesc=" + productDesc + ", prodcutStatus=" + productStatus
+		return "Product [productId=" + productId + ", productName=" + productName + ", prodcutStatus=" + productStatus
 				+ ", productUnit=" + productUnit + "]";
 	}
 

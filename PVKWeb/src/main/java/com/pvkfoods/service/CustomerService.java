@@ -25,21 +25,21 @@ public interface CustomerService {
 	
 	@PUT
 	@Path("/")
-	public Long addCustomer(CustomerRequest customer);
+	public Long addCustomer(CustomerRequest customer) throws ServiceException;
 	
 	@GET
 	@Path("/{id}/")
-	public CustomerResponse getCustomer(@PathParam("id") Long id);
+	public CustomerResponse getCustomer(@PathParam("id") Long id) throws ServiceException;
 	
 	@GET
 	@Path("/")
-	public CustomerResponse getCustomers();
+	public CustomerResponse getCustomers() throws ServiceException;
 	
 	@POST
 	@Path("/")
-	public Long modifyCustomer(CustomerRequest customer);
+	public Long modifyCustomer(CustomerRequest customer) throws ServiceException;
 	
 	@DELETE
 	@Path("/")
-	public boolean deleteCustomer(@PathParam("id") Long id);
+	public boolean deleteCustomer(@PathParam("id") Long id) throws ServiceException;
 }

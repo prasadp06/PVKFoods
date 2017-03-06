@@ -11,7 +11,7 @@
 	  <result property="updatedBy" column="UPDATED_BY"/>
 	  <result property="updatedDate" column="UPDATED_DATE"/>
   
-	  <association property="salesUser" javaType="com.pvkfoods.dao.bean.UserBean" resultSet="PVK_USER" column="SALES_AGENT_ID" foreignColumn="USER_ID">
+	  <association property="salesUser" javaType="com.pvkfoods.dao.bean.UserBean">
 	    <id property="userId" column="USER_ID"/>
 	    <result property="username" column="username"/>
 	    <result property="firstName" column="FIRST_NAME"/>
@@ -19,7 +19,7 @@
 	    <result property="email" column="email"/>
 	  </association>
 	  
-	   <association property="customer" javaType="com.pvkfoods.dao.bean.CustomerBean" resultSet="PVK_CUSTOMER" column="CUSTOMER_ID" foreignColumn="CUSTOMER_ID">
+	   <association property="customer" javaType="com.pvkfoods.dao.bean.CustomerBean"  column="CUSTOMER_ID" foreignColumn="CUSTOMER_ID">
 	    <id property="customerId" column="CUSTOMER_ID"/>
 	    <result property="customerName" column="CUSTOMER_NAME"/>
 	  </association>
@@ -29,14 +29,37 @@
 	    <result property="quantity" column="QUANTITY"/>
 	    <result property="UOM" column="UOM"/>
 	    
-	    <association property="product" javaType="com.pvkfoods.dao.bean.ProductBean" resultSet="PVK_PRODUCT" column="PRODUCT_ID" foreignColumn="PRODUCT_ID">
+	    <association property="product" javaType="com.pvkfoods.dao.bean.ProductBean"  >
 		    <id property="productId" column="PRODUCT_ID"/>
-		    <result property="prodcutName" column="PRODUCT_NAME"/>
+		    <result property="productName" column="PRODUCT_TITLE"/>
 		</association>
 	    
 	  </collection>
 	  
-</resultMap>
+	</resultMap>
   
+  	<select id="getAllOrders" resultMap="ordersMap">
+	  SELECT O.ORDER_ID, 
+	  		O.TOT_AMOUNT, 
+	  		O.ORDER_DATE, 
+	  		O.SALES_AGENT_ID, 
+	  		U.USER_ID, 
+	  		U.USERNAME, 
+	  		U.FIRST_NAME, 
+	  		U.LAST_NAME, 
+	  		U.EMAIL, 
+	  		O.CUSTOMER_ID, 
+	  		C.CUSTOMER_ID, 
+	  		C.CUSTOMER_NAME, 
+	  		OD.QUANTITY, 
+	  		OD.UOM, 
+	  		P.PRODUCT_ID, 
+	  		P.PRODUCT_TITLE 
+	  	FROM PVK_ORDER O
+	  	LEFT OUTER JOIN PVK_USER U ON O.SALES_AGENT_ID = U.USER_ID 
+	  	LEFT OUTER JOIN PVK_CUSTOMER C ON O.CUSTOMER_ID = C.CUSTOMER_ID 
+	  	LEFT OUTER JOIN PVK_ORDER_PRODUCT OD ON O.ORDER_ID = OD.ORDER_ID
+	  	LEFT JOIN PVK_PRODUCT P ON OD.PRODUCT_ID = P.PRODUCT_ID
+	</select>
   
 </mapper>

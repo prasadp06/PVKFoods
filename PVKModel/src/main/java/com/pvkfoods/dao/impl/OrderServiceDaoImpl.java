@@ -37,4 +37,12 @@ public class OrderServiceDaoImpl implements OrderServiceDao {
 			
 		}
 	}
+
+	public SqlSession getSqlSession() {
+		return sqlSession;
+	}
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
 }

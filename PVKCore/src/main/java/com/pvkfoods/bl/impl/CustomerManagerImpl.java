@@ -1,9 +1,10 @@
-package com.pvkfoodsbl.impl;
+package com.pvkfoods.bl.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.pvkfoods.DAOException;
@@ -18,13 +19,16 @@ import com.pvkfoods.exception.BusinessException;
  *
  */
 @Service
-public class CustomerManagerImpl implements CustomerManager{
+public class CustomerManagerImpl implements CustomerManager {
 
 	@Autowired
-	CustomerServiceDao customerService;
+	CustomerServiceDao customerDaoService;
 	
 	public CustomerManagerImpl() {
 		// TODO Auto-generated constructor stub
+		System.out.println("-----------------------------------");
+		System.out.println("--------CustomerManagerImpl--------");
+		System.out.println("-----------------------------------");
 	}
 
 	@Override
@@ -33,7 +37,7 @@ public class CustomerManagerImpl implements CustomerManager{
 		List<Customer> customers = new ArrayList<Customer>();
 		try {
 			
-			copyToDto(customers, customerService.getAll());
+			copyToDto(customers, customerDaoService.getAll());
 			
 		} catch (DAOException e) {
 			e.printStackTrace();
@@ -56,6 +60,16 @@ public class CustomerManagerImpl implements CustomerManager{
 			}
 		}
 	}
+
+	public CustomerServiceDao getCustomerDaoService() {
+		return customerDaoService;
+	}
+
+	public void setCustomerDaoService(CustomerServiceDao customerDaoService) {
+		this.customerDaoService = customerDaoService;
+	}
+
+	
 	
 	
 

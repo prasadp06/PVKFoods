@@ -17,10 +17,13 @@
 	<import resource="classpath*:pvkfoods-dao.xml" />
 	<aop:aspectj-autoproxy> </aop:aspectj-autoproxy>
 	
-	<bean id="customerManager" class="com.pvkfoodsbl.impl.CustomerManagerImpl" >
-		
+	<bean id="customerManager" class="com.pvkfoods.bl.impl.CustomerManagerImpl" >
+		<property name="customerDaoService" ref="customerDaoService" />
 	</bean>
 	
+	<bean id="productManager" class="com.pvkfoods.bl.impl.ProductManagerImpl" >
+		<property name="productDaoService" ref="productDaoService" />
+	</bean>
 	
 	
 	<!-- Aspect -->

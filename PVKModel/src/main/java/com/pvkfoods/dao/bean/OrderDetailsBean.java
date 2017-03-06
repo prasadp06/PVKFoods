@@ -1,5 +1,8 @@
 package com.pvkfoods.dao.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * @author prasadprabhakaran
@@ -8,7 +11,7 @@ package com.pvkfoods.dao.bean;
 public class OrderDetailsBean {
 	private Long orderId;
 	private Long productId; 
-	private ProductBean product;
+	private List<ProductBean> product;
 	private Integer quantity; 
 	private String UOM;
 	
@@ -19,7 +22,7 @@ public class OrderDetailsBean {
 		super();
 		this.orderId = orderId;
 		this.productId = productId;
-		this.product = product;
+		getProduct().add(product);
 		this.quantity = quantity;
 		UOM = uOM;
 	}
@@ -30,10 +33,13 @@ public class OrderDetailsBean {
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
-	public ProductBean getProduct() {
+	public List<ProductBean> getProduct() {
+		if(product == null){
+			product = new ArrayList<ProductBean>();
+		}
 		return product;
 	}
-	public void setProduct(ProductBean product) {
+	public void setProduct(List<ProductBean> product) {
 		this.product = product;
 	}
 	

@@ -35,10 +35,18 @@
 	
 	
 	
-	<bean id="customerDaoService" class="com.pvkfoods.dao.impl.CustomerServiceDaoImpl" />
-	<bean id="productDaoService" class="com.pvkfoods.dao.impl.ProductServiceDaoImpl" />
-	<bean id="userDaoService" class="com.pvkfoods.dao.impl.UserServiceDaoImpl" />
-	<bean id="orderDaoService" class="com.pvkfoods.dao.impl.OrderServiceDaoImpl" />
+	<bean id="customerDaoService" class="com.pvkfoods.dao.impl.CustomerServiceDaoImpl" >
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean id="productDaoService" class="com.pvkfoods.dao.impl.ProductServiceDaoImpl">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean id="userDaoService" class="com.pvkfoods.dao.impl.UserServiceDaoImpl">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean id="orderDaoService" class="com.pvkfoods.dao.impl.OrderServiceDaoImpl">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
 	<bean id="mybatisUtil" class="com.pvkfoods.dao.utils.MyBatisUtil" />
 
 	

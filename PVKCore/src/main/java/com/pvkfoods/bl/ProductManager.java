@@ -18,5 +18,5 @@ public interface ProductManager {
 	 * @return
 	 * @throws BusinessException
 	 */
-	Products getProdcuts() throws BusinessException;
+	Products getProducts() throws BusinessException;
 }

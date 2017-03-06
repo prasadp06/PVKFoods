@@ -83,4 +83,12 @@ public class ProductServiceDaoImpl implements ProductServiceDao {
 		return null;
 	}
 
+	public SqlSession getSqlSession() {
+		return sqlSession;
+	}
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
 }

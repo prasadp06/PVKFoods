@@ -22,18 +22,9 @@
 	<import resource="classpath*:pvkfoods-core.xml" />
 
 	<!-- JAXRS Configurations -->
-	<jaxrs:server id="customerService" address="/customerservice">
+	<jaxrs:server id="customerService" address="/customer">
 		<jaxrs:serviceBeans>
-			<ref bean="customerBean" />
-		</jaxrs:serviceBeans>
-		<jaxrs:providers>
-			<ref bean="jacksonProvider" />
-		</jaxrs:providers>
-	</jaxrs:server>
-	
-	<!--  jaxrs:server id="productService" address="/productservice">
-		<jaxrs:serviceBeans>
-			<ref bean="productBean" />
+			<ref bean="customerServiceBean" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<ref bean="jacksonProvider" />
@@ -41,7 +32,17 @@
 		</jaxrs:providers>
 	</jaxrs:server>
 	
-	<jaxrs:server id="orderService" address="/orderservice">
+	<jaxrs:server id="productService" address="/product">
+		<jaxrs:serviceBeans>
+			<ref bean="productServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref bean="jacksonProvider" />
+			<ref bean="exceptionProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!--  jaxrs:server id="orderService" address="/orderservice">
 		<jaxrs:serviceBeans>
 			<ref bean="orderBean" />
 		</jaxrs:serviceBeans>
@@ -58,15 +59,15 @@
     </cxf:bus> 	
     
     
-    <bean id="customerBean" class="com.pvkfoods.service.impl.CustomerServiceImpl">
-		<!-- <property name="customerManager" ref="customerManager" /> -->
+    <bean id="customerServiceBean" class="com.pvkfoods.service.impl.CustomerServiceImpl">
+		<property name="customerManager" ref="customerManager" />
 	</bean>
 
-	<!-- bean id="productBean" class="com.pvkfoods.service.ProductServiceImpl">
-		<property name="searchManager" ref="productManager"></property>
+	<bean id="productServiceBean" class="com.pvkfoods.service.impl.ProductServiceImpl">
+		<property name="productManager" ref="productManager" />
 	</bean>
 	
-	<bean id="propertyBean" class="com.pvkfoods.service.OrderServiceImpl">
+	<!-- bean id="propertyBean" class="com.pvkfoods.service.OrderServiceImpl">
 		<property name="propertyManager" ref="orderManager" />
 	</bean -->
 	
