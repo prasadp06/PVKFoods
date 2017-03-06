@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:pvk-req-dto="http://request.dto.pvkfoods.com" 
-	xmlns:pvk-beans-dto="http://beans.dto.pvkfoods.com" 
-	targetNamespace="http://request.dto.pvkfoods.com" >
+			xmlns:pvk-req-dto="http://request.dto.pvkfoods.com" 
+			xmlns:pvk-beans-dto="http://beans.dto.pvkfoods.com" 
+			targetNamespace="http://request.dto.pvkfoods.com" 
+			elementFormDefault="qualified">
 	
 	<xsd:import namespace="http://beans.dto.pvkfoods.com"  schemaLocation="pvkfoodbeans.xsd" />
-    
-    <xsd:element name="customerResponse" type="pvk-req-dto:CustomerResponse" />
     
     <xsd:complexType name="BaseRequest">
     	<xsd:sequence>

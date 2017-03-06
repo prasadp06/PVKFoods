@@ -1,13 +1,19 @@
 package com.pvkfoods.dao.bean;
 
-public class Product {
+import java.util.Date;
+
+public class ProductBean extends BaseDaoBean{
 	Long productId;
+	String productName;
 	String productDesc;
-	String prodcutStatus;
+	String productStatus;
 	Double productUnit;
+	String UOM;
+	Double unitPrice;
 	
 	
-	public Product(){
+	
+	public ProductBean(){
 		
 	}
 	
@@ -17,11 +23,12 @@ public class Product {
 	 * @param prodcutStatus
 	 * @param productUnit
 	 */
-	public Product(Long productId, String productDesc, String prodcutStatus, Double productUnit) {
+	public ProductBean(Long productId, String productName, String productDesc, String productStatus, Double productUnit) {
 		super();
 		this.productId = productId;
+		this.productName = productName;
 		this.productDesc = productDesc;
-		this.prodcutStatus = prodcutStatus;
+		this.productStatus = productStatus;
 		this.productUnit = productUnit;
 	}
 	public Long getProductId() {
@@ -36,12 +43,7 @@ public class Product {
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
 	}
-	public String getProdcutStatus() {
-		return prodcutStatus;
-	}
-	public void setProdcutStatus(String prodcutStatus) {
-		this.prodcutStatus = prodcutStatus;
-	}
+	
 	public Double getProductUnit() {
 		return productUnit;
 	}
@@ -69,9 +71,9 @@ public class Product {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof Product))
+		if (!(obj instanceof ProductBean))
 			return false;
-		Product other = (Product) obj;
+		ProductBean other = (ProductBean) obj;
 		if (productId == null) {
 			if (other.productId != null)
 				return false;
@@ -85,9 +87,42 @@ public class Product {
 	 */
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productDesc=" + productDesc + ", prodcutStatus=" + prodcutStatus
+		return "Product [productId=" + productId + ", productDesc=" + productDesc + ", prodcutStatus=" + productStatus
 				+ ", productUnit=" + productUnit + "]";
 	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getUOM() {
+		return UOM;
+	}
+
+	public void setUOM(String uOM) {
+		UOM = uOM;
+	}
+
+	public Double getUnitPrice() {
+		return unitPrice;
+	}
+
+	public void setUnitPrice(Double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public String getProductStatus() {
+		return productStatus;
+	}
+
+	public void setProductStatus(String productStatus) {
+		this.productStatus = productStatus;
+	}
+
 	
 	
 	

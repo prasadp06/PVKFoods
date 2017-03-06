@@ -101,7 +101,7 @@
     	<xsd:sequence>
     		<xsd:element name="customerId" type="xsd:long" minOccurs="0" />
     		<xsd:element name="customerName" type="xsd:string" />
-    		<xsd:element name="branch" type="pvk-beans-dto:Branch" />
+    		<xsd:element name="branch" type="pvk-beans-dto:Branch" maxOccurs="unbounded"  />
     		<xsd:element name="UUID" type="xsd:string" />
     		<xsd:element name="email" type="xsd:string" />
     	</xsd:sequence>
@@ -111,7 +111,8 @@
     	<xsd:sequence>
     		<xsd:element name="branchId" type="xsd:long" minOccurs="0" />
     		<xsd:element name="branchName" type="xsd:string" />
-    		<xsd:element name="address" type="pvk-beans-dto:Addresses" />
+    		<xsd:element name="address" type="pvk-beans-dto:Address" />
+    		<xsd:element name="phone" type="pvk-beans-dto:Phones" />
     		<xsd:element name="status" type="xsd:string" />
     	</xsd:sequence>
     </xsd:complexType>
@@ -121,7 +122,7 @@
     	<xsd:sequence>
     		<xsd:element name="supplierId" type="xsd:long" minOccurs="0" />
     		<xsd:element name="supplierName" type="xsd:string" />
-    		<xsd:element name="branch" type="pvk-beans-dto:Branch" />
+    		<xsd:element name="branch" type="pvk-beans-dto:Branch" maxOccurs="unbounded" />
     		<xsd:element name="UUID" type="xsd:string" />
     		<xsd:element name="email" type="xsd:string" />
     	</xsd:sequence>

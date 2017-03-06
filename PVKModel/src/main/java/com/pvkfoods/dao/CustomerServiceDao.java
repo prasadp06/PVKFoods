@@ -3,7 +3,7 @@ package com.pvkfoods.dao;
 import java.util.List;
 
 import com.pvkfoods.DAOException;
-import com.pvkfoods.dao.bean.Customer;
+import com.pvkfoods.dao.bean.CustomerBean;
 
 /**
  * 
@@ -17,7 +17,7 @@ public interface CustomerServiceDao {
 	 * @return
 	 * @throws DAOException
 	 */
-	public boolean save(Customer customer) throws DAOException;
+	public boolean save(CustomerBean customer) throws DAOException;
 	
 	/**
 	 * 
@@ -25,7 +25,7 @@ public interface CustomerServiceDao {
 	 * @return
 	 * @throws DAOException
 	 */
-	public boolean update(Customer customer) throws DAOException;
+	public boolean update(CustomerBean customer) throws DAOException;
 	
 	/**
 	 * 
@@ -33,7 +33,7 @@ public interface CustomerServiceDao {
 	 * @return
 	 * @throws DAOException
 	 */
-	public Customer get(Long customerId) throws DAOException;
+	public CustomerBean get(Long customerId) throws DAOException;
 	
 	/**
 	 * 
@@ -48,5 +48,5 @@ public interface CustomerServiceDao {
 	 * @return
 	 * @throws DAOException
 	 */
-	public List<Customer> getAll() throws DAOException;
+	public List<CustomerBean> getAll() throws DAOException;
 }

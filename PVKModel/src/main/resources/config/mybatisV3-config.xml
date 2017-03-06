@@ -4,11 +4,12 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<typeAliases>
-		
-	</typeAliases>
+	
     <mappers>
+    	<mapper resource="config/mapper/OrderMapper.xml"/>
         <mapper class="com.pvkfoods.dao.mapper.CustomerServiceMapper" />
         <mapper class="com.pvkfoods.dao.mapper.ProductServiceMapper" />
+        <mapper class="com.pvkfoods.dao.mapper.UserServiceMapper" />
+        
     </mappers>
 </configuration>

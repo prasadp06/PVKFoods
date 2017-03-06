@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.pvkfoods.DAOException;
 import com.pvkfoods.dao.CustomerServiceDao;
-import com.pvkfoods.dao.bean.Customer;
+import com.pvkfoods.dao.bean.CustomerBean;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/pvkfoods-dao.xml"})
@@ -23,7 +23,7 @@ public class CustomerServiceImplTest {
 	
 	@Test
 	public void testSave() throws DAOException {
-		Customer cus = new Customer(null, "Cus 1", "test@test.com", "1234 Test Street", "1234567890", "testuser", new Date());
+		CustomerBean cus = new CustomerBean(null, "Cus 1", "test@test.com", "1234 Test Street", "1234567890");
 		assertTrue(service.save(cus));
 	}
 
@@ -34,9 +34,9 @@ public class CustomerServiceImplTest {
 
 	@Test
 	public void testGet() throws DAOException {
-		Customer actual = new Customer(new Long(1), "Cus 1", "test@test.com", "1234 Test Street", "1234567890", "testuser", new Date());
+		CustomerBean actual = new CustomerBean(new Long(1), "Cus 1", "test@test.com", "1234 Test Street", "1234567890");
 		
-		Customer cus = service.get(new Long(1));
+		CustomerBean cus = service.get(new Long(1));
 		assertTrue(true);
 	}
 

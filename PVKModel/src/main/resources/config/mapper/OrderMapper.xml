@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pvkfoods.dao.mapper.OrderServiceMapper">
+  
+  <resultMap id="ordersMap" type="com.pvkfoods.dao.bean.OrderBean">
+	  <id property="orderId" column="ORDER_ID" />
+	  <result property="totalAmount" column="TOT_AMOUNT"/>
+	  <result property="orderDate" column="ORDER_DATE"/>
+	  <result property="updatedBy" column="UPDATED_BY"/>
+	  <result property="updatedDate" column="UPDATED_DATE"/>
+  
+	  <association property="salesUser" javaType="com.pvkfoods.dao.bean.UserBean" resultSet="PVK_USER" column="SALES_AGENT_ID" foreignColumn="USER_ID">
+	    <id property="userId" column="USER_ID"/>
+	    <result property="username" column="username"/>
+	    <result property="firstName" column="FIRST_NAME"/>
+	    <result property="lastName" column="LAST_NAME"/>
+	    <result property="email" column="email"/>
+	  </association>
+	  
+	   <association property="customer" javaType="com.pvkfoods.dao.bean.CustomerBean" resultSet="PVK_CUSTOMER" column="CUSTOMER_ID" foreignColumn="CUSTOMER_ID">
+	    <id property="customerId" column="CUSTOMER_ID"/>
+	    <result property="customerName" column="CUSTOMER_NAME"/>
+	  </association>
+  
+	  <collection property="details" ofType="com.pvkfoods.dao.bean.OrderDetailsBean">
+	    <id property="orderId" column="ORDER_ID"/>
+	    <result property="quantity" column="QUANTITY"/>
+	    <result property="UOM" column="UOM"/>
+	    
+	    <association property="product" javaType="com.pvkfoods.dao.bean.ProductBean" resultSet="PVK_PRODUCT" column="PRODUCT_ID" foreignColumn="PRODUCT_ID">
+		    <id property="productId" column="PRODUCT_ID"/>
+		    <result property="prodcutName" column="PRODUCT_NAME"/>
+		</association>
+	    
+	  </collection>
+	  
+</resultMap>
+  
+  
+</mapper>

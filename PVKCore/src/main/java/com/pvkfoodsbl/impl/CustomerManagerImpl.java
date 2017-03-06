@@ -43,10 +43,10 @@ public class CustomerManagerImpl implements CustomerManager{
 		return customers;
 	}
 	
-	private void copyToDto(List<Customer> dto, List<com.pvkfoods.dao.bean.Customer> dao){
+	private void copyToDto(List<Customer> dto, List<com.pvkfoods.dao.bean.CustomerBean> dao){
 		Customer cusDto;
 		if(dao != null && !dao.isEmpty()){
-			for(com.pvkfoods.dao.bean.Customer daoCustomer : dao){
+			for(com.pvkfoods.dao.bean.CustomerBean daoCustomer : dao){
 				cusDto = new Customer();
 				cusDto.setCustomerId(daoCustomer.getCustomerId());
 				cusDto.setCustomerName(daoCustomer.getCustomerName());

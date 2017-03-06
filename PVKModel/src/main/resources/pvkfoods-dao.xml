@@ -29,12 +29,16 @@
 		<property name="configLocation" value="classpath:config/mybatisV3-config.xml"/>
 	</bean>
 	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.pvkfoods.dao.mapper"></property>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+  		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
+	
+	
 	
 	<bean id="customerDaoService" class="com.pvkfoods.dao.impl.CustomerServiceDaoImpl" />
 	<bean id="productDaoService" class="com.pvkfoods.dao.impl.ProductServiceDaoImpl" />
+	<bean id="userDaoService" class="com.pvkfoods.dao.impl.UserServiceDaoImpl" />
+	<bean id="orderDaoService" class="com.pvkfoods.dao.impl.OrderServiceDaoImpl" />
 	<bean id="mybatisUtil" class="com.pvkfoods.dao.utils.MyBatisUtil" />
 
 	
